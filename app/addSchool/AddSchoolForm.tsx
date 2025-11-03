@@ -37,7 +37,7 @@ export function AddSchoolForm() {
             <input {...register("image", { required: true })} />
             <label>Email:</label>
             <input {...register("email", { required: true })} />
-            {errors.name && <span class="error">This field is required</span>}
+            {errors.name && <span className="error">This field is required</span>}
             <input type="submit" />
         </form>
     )
