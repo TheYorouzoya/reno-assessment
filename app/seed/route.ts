@@ -1,6 +1,6 @@
 import postgres from 'postgres'
 
-const sql = postgres(process.env.DATABASE_URL!, { ssl: 'verify-full' })
+const sql = postgres(process.env.RENO_POSTGRES_URL!, { ssl: 'require' })
 
 async function seedSchools() {
     await sql`
