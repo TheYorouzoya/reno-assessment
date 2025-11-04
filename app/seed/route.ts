@@ -20,7 +20,7 @@ async function seedSchools() {
 
     const insertedSchools = sql`
         INSERT INTO schools
-            (id, name, address, city, state, contact, image_url, email_id)
+            (name, address, city, state, contact, image_url, email_id)
         VALUES ${sql(
             schools.map(
                 (school) => [school.name, school.address, school.city, school.state, school.contact, school.image_url, school.email_id]
