@@ -10,14 +10,14 @@ export async function fetchSchools(currentPage: number) {
     try {
         const schools = await sql<School[]>`
             SELECT 
-                (name, address, city, state, contact, image_url, email_id)
+                name, address, city, state, contact, image_url, email_id
             FROM schools
             ORDER BY name ASC
             LIMIT ${ITEMS_PER_PAGE + 1} OFFSET ${offset};
         `
 
         return {
-            schools: schools.slice(-1),
+            schools: schools.slice(0, ITEMS_PER_PAGE),
             hasNext: schools.length > ITEMS_PER_PAGE
         }
     } catch (error) {
