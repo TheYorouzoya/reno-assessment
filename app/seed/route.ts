@@ -11,7 +11,7 @@ async function seedSchools() {
             address VARCHAR(255) NOT NULL,
             city VARCHAR(255) NOT NULL,
             state VARCHAR(255) NOT NULL,
-            contact BIGINT NOT NULL UNIQUE,
+            contact VARCHAR(20) NOT NULL UNIQUE,
             image_url VARCHAR(255) NOT NULL,
             email_id VARCHAR(255) NOT NULL UNIQUE
         );
