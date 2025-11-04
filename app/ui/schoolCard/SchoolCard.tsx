@@ -1,4 +1,5 @@
 import { School } from "../../lib/definitions";
+import "./SchoolCard.css"
 
 type SchoolCardProps = {
     school: School

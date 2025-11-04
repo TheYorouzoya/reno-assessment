@@ -1,5 +1,6 @@
 import { School } from "../../lib/definitions";
 import SchoolCard from "./SchoolCard";
+import "./SchoolCardWrapper.css"
 
 type SchoolCardWrapperProps = {
     schools: School[]
