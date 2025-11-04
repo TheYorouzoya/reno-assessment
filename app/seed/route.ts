@@ -17,7 +17,9 @@ async function seedSchools() {
     `
 
     const insertedSchools = await sql`
-        INSERT INTO schools VALUES
+        INSERT INTO schools
+            (id, name, address, city, state, contact, image_url, email_id)
+        VALUES
         (21,'est','1936 O\'Reilly Estates Suite 665\nEast Leonelbury, DC 90308','Port Ileneberg','NewHampshire',0,'http://hudson.info/','weichmann@hotmail.com'),
         (22,'hic','01200 Lebsack Lakes\nEast Jake, ND 98136','Zemlakchester','California',77,'http://www.bauch.com/','allene29@hotmail.com'),
         (24,'nihil','14576 Lelah Drive Suite 966\nNew Chanelhaven, KS 94846','East Jovanyberg','Utah',1179086025,'http://www.kuphal.com/','abraham31@gmail.com'),
