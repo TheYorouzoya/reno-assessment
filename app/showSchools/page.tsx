@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react"
+import { Suspense } from "react"
 import { fetchSchools } from "../lib/data"
 import SchoolCardWrapper from "./SchoolCardWrapper"
 import "./showSchools.css"
