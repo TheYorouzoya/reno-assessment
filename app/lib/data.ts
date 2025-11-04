@@ -12,7 +12,7 @@ export async function fetchSchools(currentPage: number) {
             SELECT 
                 (name, address, city, state, contact, image_url, email_id)
             FROM schools
-            ORDER BY name
+            ORDER BY name ASC
             LIMIT ${ITEMS_PER_PAGE + 1} OFFSET ${offset};
         `
 

@@ -4,10 +4,25 @@ import SchoolCardWrapper from "./SchoolCardWrapper"
 import "./showSchools.css"
 import Link from "next/link"
 
-export default async function Page(props: {
-    page: number
+export default async function Page({
+    searchParams,
+}: {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined}>
 }) {
-    const fetchedSchools = await fetchSchools(props.page)
+    const { pageParam } = await searchParams
+    let page: number | undefined
+
+    if (typeof pageParam === 'string') {
+        page = Number(pageParam)
+
+        if (isNaN(page)) {
+            page = 1
+        }
+    } else {
+        page = 1
+    }
+
+    const fetchedSchools = await fetchSchools(page)
 
     return (
         <main>
@@ -16,15 +31,15 @@ export default async function Page(props: {
                 <Suspense fallback={<div>Loading...</div>}>
                     <SchoolCardWrapper schools={fetchedSchools.schools} />
                     <div className="card-footer">
-                        {props.page > 1 && 
+                        {page > 1 && 
                             <button className="card-button">
-                                <Link href={`/showSchools?page=${props.page - 1}`}>
+                                <Link href={`/showSchools?page=${page - 1}`}>
                                     Prev
                                 </Link>
                             </button>}
                         {fetchedSchools.hasNext && 
                             <button className="card-button">
-                                <Link href={`/showSchools?page=${props.page + 1}`}>
+                                <Link href={`/showSchools?page=${page + 1}`}>
                                     Next
                                 </Link>
                             </button>}
