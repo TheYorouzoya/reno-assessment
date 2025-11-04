@@ -1,4 +1,4 @@
-import { School } from "../lib/definitions";
+import { School } from "../../lib/definitions";
 
 type SchoolCardProps = {
     school: School

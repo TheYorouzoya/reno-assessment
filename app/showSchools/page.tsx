@@ -1,30 +1,25 @@
 import { Suspense } from "react"
 import { fetchSchools } from "../lib/data"
-import SchoolCardWrapper from "./SchoolCardWrapper"
+import SchoolCardWrapper from "../ui/schoolCard/SchoolCardWrapper"
 import "./showSchools.css"
 import Link from "next/link"
 
 export default async function Page({
     searchParams,
 }: {
-    searchParams: Promise<{ [key: string]: string | string[] | undefined}>
+    searchParams: { [key: string]: string | string[] | undefined}
 }) {
-    const { pageParam } = await searchParams
-    let page: number | undefined
+    const pageParam = searchParams.page
+    let page = 1
 
-    if (typeof pageParam === 'string') {
-        page = Number(pageParam)
-
-        if (isNaN(page)) {
-            page = 1
+    if (typeof pageParam === "string") {
+        const parsed = Number(pageParam)
+        if (!isNaN(parsed) && parsed > 0) {
+            page = parsed
         }
-    } else {
-        page = 1
     }
 
     const fetchedSchools = await fetchSchools(page)
-
-    console.log(page, fetchSchools)
 
     return (
         <main>
@@ -34,17 +29,13 @@ export default async function Page({
                     <SchoolCardWrapper schools={fetchedSchools.schools} />
                     <div className="card-footer">
                         {page > 1 && 
-                            <button className="card-button">
-                                <Link href={`/showSchools?page=${page - 1}`}>
-                                    Prev
-                                </Link>
-                            </button>}
+                            <Link href={`/showSchools?page=${page - 1}`} className="card-button">
+                                Prev
+                            </Link>}
                         {fetchedSchools.hasNext && 
-                            <button className="card-button">
-                                <Link href={`/showSchools?page=${page + 1}`}>
-                                    Next
-                                </Link>
-                            </button>}
+                            <Link href={`/showSchools?page=${page + 1}`} className="card-button">
+                                Next
+                            </Link>}
                     </div>
                 </Suspense>
             </section>

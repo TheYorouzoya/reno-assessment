@@ -1,0 +1,14 @@
+.school-card {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.card-image {
+    max-height: 300px;
+}
+
+.card-body {
+    h3 {
+        font-size: 1.5rem;
+    }
+}

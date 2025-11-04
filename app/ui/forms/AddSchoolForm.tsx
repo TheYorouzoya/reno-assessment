@@ -1,6 +1,7 @@
 "use client"
 import { useForm, SubmitHandler } from "react-hook-form"
-import type { School } from "../lib/definitions"
+import type { School } from "../../lib/definitions"
+import "./AddSchoolForm.css"
 
 export function AddSchoolForm() {
     const {

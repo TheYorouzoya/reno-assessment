@@ -1,4 +1,4 @@
-import { AddSchoolForm } from "./AddSchoolForm"
+import { AddSchoolForm } from "../ui/forms/AddSchoolForm"
 import "./addSchool.css"
 
 export default function Page() {
