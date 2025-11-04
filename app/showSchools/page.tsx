@@ -24,6 +24,8 @@ export default async function Page({
 
     const fetchedSchools = await fetchSchools(page)
 
+    console.log(fetchSchools)
+
     return (
         <main>
             <h1 className="">All Schools</h1>
