@@ -1,16 +1,6 @@
 "use client"
 import { useForm, SubmitHandler } from "react-hook-form"
-import "./AddSchoolForm.css"
-
-type Inputs = {
-    name: string
-    address: string
-    city: string
-    state: string
-    contact: number
-    image: string
-    email: string
-}
+import type { School } from "../lib/definitions"
 
 export function AddSchoolForm() {
     const {
@@ -18,8 +8,8 @@ export function AddSchoolForm() {
         handleSubmit,
         watch,
         formState: { errors },
-    } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+    } = useForm<School>()
+    const onSubmit: SubmitHandler<School> = (data) => console.log(data)
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -36,7 +26,7 @@ export function AddSchoolForm() {
             <label>Image:</label>
             <input {...register("image", { required: true })} />
             <label>Email:</label>
-            <input {...register("email", { required: true })} />
+            <input {...register("email_id", { required: true })} />
             {errors.name && <span className="error">This field is required</span>}
             <input type="submit" />
         </form>

@@ -18,20 +18,28 @@ async function seedSchools() {
 
     const insertedSchools = await sql`
         INSERT INTO schools
-            (id, name, address, city, state, contact, image_url, email_id)
+            (name, address, city, state, contact, image_url, email_id)
         VALUES
-            (21,'est','1936 O''Reilly Estates Suite 665 East Leonelbury, DC 90308','Port Ileneberg','NewHampshire',0,'http://hudson.info/','weichmann@hotmail.com'),
-            (22,'hic','01200 Lebsack Lakes East Jake, ND 98136','Zemlakchester','California',77,'http://www.bauch.com/','allene29@hotmail.com'),
-            (24,'nihil','14576 Lelah Drive Suite 966 New Chanelhaven, KS 94846','East Jovanyberg','Utah',1179086025,'http://www.kuphal.com/','abraham31@gmail.com'),
-            (25,'at','0975 Jaylan Manor Suite 103 Port Trent, UT 68256-3799','Port Kelliside','NorthCarolina',1,'http://bogisichfahey.org/','wisoky.anne@halvorsonblanda.com'),
-            (27,'veritatis','5806 Von Cliff Terryhaven, IN 67003-3148','Delfinafurt','NorthDakota',843373,'http://www.cassinbeahan.com/','vullrich@hotmail.com'),
-            (29,'in','6886 Stoltenberg Branch Suite 737 North Antonefort, FL 88898','Port Ransommouth','Missouri',162537,'http://www.beiertromp.net/','arno.wiza@hotmail.com'),
-            (31,'odio','23283 Leon Summit Ardellashire, FL 00573','Port Nyahside','Nebraska',631,'http://romaguera.net/','fhessel@schowalter.com'),
-            (32,'ut','05902 Crystal Plaza Daishabury, RI 13966-1420','Huelburgh','Louisiana',342942,'http://www.willms.com/','ukihn@yahoo.com'),
-            (33,'vel','09889 Balistreri Knoll New Kirsten, VT 68354-0561','Stammtown','SouthCarolina',300,'http://framiwuckert.com/','oral.hermiston@mclaughlin.biz'),
-            (36,'voluptatem','79838 Sally Junctions Apt. 055 Lake Rene, GA 77517','Gertrudemouth','Kansas',913868244,'http://hermiston.com/','lura.howell@kuhlman.biz'),
-            (37,'architecto','6342 Grimes Port Starkshire, HI 94322','Keelingburgh','Alabama',651,'http://roob.info/','herdman@murray.biz')
-        ON CONFLICT DO NOTHING;
+            ('Schultz-Beatty','0232 Noelia Crossing North Cary, LA 02072-9739','Esmeraldaville','Alabama',468008,'https://loremflickr.com/640/480/','layla.feest@hotmail.com'),
+            ('Boehm LLC','2391 Purdy Summit North Keven, NJ 65946-5787','West Watsonchester','Maryland',303,'https://loremflickr.com/640/480/','althea43@gmail.com'),
+            ('Kuvalis-Grant','91746 Fritsch Center Rathberg, MD 06604','Franciscoburgh','NorthCarolina',540,'https://loremflickr.com/640/480/','hirthe.layla@yahoo.com'),
+            ('Bayer PLC','841 Leopoldo Cove Edmundville, KS 98726-7897','Chaunceymouth','Wyoming',1,'https://loremflickr.com/640/480/','dayne63@bashirian.com'),
+            ('Doyle, Turner and Thompson','14535 White Branch Lake Chelsie, DC 90211-6318','Wilbertshire','Connecticut',57,'https://loremflickr.com/640/480/','casimir.robel@goldnermacejkovic.info'),
+            ('Strosin Inc','418 Ethyl Summit New Annatown, VT 44329-4726','Keshaunchester','Iowa',0,'https://loremflickr.com/640/480/','roob.pearlie@gmail.com'),
+            ('Spinka, Kuhlman and King','5838 Duncan Fords Suite 705 South Christchester, NH 28244-0519','Aliyahhaven','Alaska',2147483647,'https://loremflickr.com/640/480/','alfonzo25@balistreri.info'),
+            ('Blick-Ritchie','15071 Donnelly Mill Katelynview, MD 60310-6654','Russelfort','NewMexico',41,'https://loremflickr.com/640/480/','kling.jarrell@yahoo.com'),
+            ('Reilly-Lebsack','4340 Keebler Shoals Suite 527 Alfredfurt, NE 19782-0704','Lake Terrance','NewYork',844632,'https://loremflickr.com/640/480/','dorthy21@lubowitzmarquardt.com'),
+            ('Bednar, Treutel and Becker','350 Octavia Parkways Apt. 395 Port Raeganmouth, NY 61891-3542','Giovannifurt','California',942878,'https://loremflickr.com/640/480/','conrad60@gaylord.net'),
+            ('Larkin, Klein and Steuber','17350 Vivien Point West Justontown, ID 39069','Berniceside','NewHampshire',68,'https://loremflickr.com/640/480/','goyette.ethelyn@grant.com'),
+            ('Lakin, Bruen and Bode','53276 Champlin Path Apt. 309 Lake Kamilleview, NY 92835','Lake Hendersonfort','Florida',945,'https://loremflickr.com/640/480/','ernesto.dare@hotmail.com'),
+            ('Ryan-Cummerata','42192 O''Connell Extensions Lake Daron, OH 85115-7834','East Claudia','Minnesota',573858,'https://loremflickr.com/640/480/','vstracke@hotmail.com'),
+            ('Bechtelar Inc','615 Langosh Manors Apt. 724 Lake Cleoraborough, NH 16954-5636','South Albert','Delaware',192030,'https://loremflickr.com/640/480/','bennie21@moore.info'),
+            ('Gerhold, Runolfsson and Nienow','22778 Smith Alley Apt. 121 East Kianamouth, NE 84230','East Mekhiview','NewHampshire',26,'https://loremflickr.com/640/480/','xmohr@hotmail.com'),
+            ('Upton LLC','041 Alan Village New Nigelfort, KY 79938','Mraztown','Nebraska',848,'https://loremflickr.com/640/480/','donnelly.micheal@glover.com'),
+            ('Fahey, Streich and Predovic','15506 Schaefer Oval Suite 162 Port Amaramouth, NH 08885-3687','Port Barrystad','Idaho',66,'https://loremflickr.com/640/480/','ostiedemann@gmail.com'),
+            ('Feeney Ltd','11595 Malika Meadow East Maudehaven, NY 30359-6857','Sylvanshire','Hawaii',940757,'https://loremflickr.com/640/480/','khalil21@yahoo.com'),
+            ('Daugherty-Wisoky','84099 Hodkiewicz Hills North Madalinemouth, WV 21968','Lake Andre','NewYork',1306996941,'https://loremflickr.com/640/480/','swillms@yahoo.com')
+        ON CONFLICT DO UPDATE;
         `
 
 
