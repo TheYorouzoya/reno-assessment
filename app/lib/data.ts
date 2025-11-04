@@ -10,7 +10,7 @@ export async function fetchSchools(currentPage: number) {
     try {
         const schools = await sql<School[]>`
             SELECT 
-                (name, address, city, state, contact, image, email_id)
+                (name, address, city, state, contact, image_url, email_id)
             FROM schools
             ORDER BY name
             LIMIT ${ITEMS_PER_PAGE + 1} OFFSET ${offset};

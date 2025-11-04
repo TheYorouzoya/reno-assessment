@@ -24,7 +24,7 @@ export function AddSchoolForm() {
             <label>Contact:</label>
             <input {...register("contact", { required: true })} />
             <label>Image:</label>
-            <input {...register("image", { required: true })} />
+            <input {...register("image_url", { required: true })} />
             <label>Email:</label>
             <input {...register("email_id", { required: true })} />
             {errors.name && <span className="error">This field is required</span>}
