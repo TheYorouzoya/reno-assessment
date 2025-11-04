@@ -31,7 +31,7 @@ async function seedSchools() {
             (33,'vel','09889 Balistreri Knoll New Kirsten, VT 68354-0561','Stammtown','SouthCarolina',300,'http://framiwuckert.com/','oral.hermiston@mclaughlin.biz'),
             (36,'voluptatem','79838 Sally Junctions Apt. 055 Lake Rene, GA 77517','Gertrudemouth','Kansas',913868244,'http://hermiston.com/','lura.howell@kuhlman.biz'),
             (37,'architecto','6342 Grimes Port Starkshire, HI 94322','Keelingburgh','Alabama',651,'http://roob.info/','herdman@murray.biz')
-        ON CONFLICT (id, email_id, contact) DO NOTHING;
+        ON CONFLICT DO NOTHING;
         `
 
 
