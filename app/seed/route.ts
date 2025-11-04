@@ -18,17 +18,15 @@ async function seedSchools() {
         );
     `
 
-    const insertedSchools = sql`
-        INSERT INTO schools
-            (name, address, city, state, contact, image_url, email_id)
-        VALUES ${sql(
-            schools.map(
-                (school) => [school.name, school.address, school.city, school.state, school.contact, school.image_url, school.email_id]
-            ),
-        )}
-        ON CONFLICT DO UPDATE;
-    `
-
+    const insertedSchools = await Promise.all(
+        schools.map(async (s) => {
+            return sql`
+                INSERT INTO schools (name, address, city, state, contact, image_url, email_id)
+                VALUES (${s.name}, ${s.address}, ${s.city}, ${s.state}, ${s.contact}, ${s.image_url}, ${s.email_id})
+                ON CONFLICT DO UPDATE;
+            `
+        })
+    )
 
     return insertedSchools;
 }
