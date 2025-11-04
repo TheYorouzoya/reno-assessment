@@ -1,6 +1,5 @@
 import postgres from 'postgres'
 import { schools } from '../lib/initial-school-data'
-import { SocketAddress } from 'net'
 
 const sql = postgres(process.env.RENO_POSTGRES_URL!, { ssl: 'require' })
 
@@ -23,7 +22,13 @@ async function seedSchools() {
             return sql`
                 INSERT INTO schools (name, address, city, state, contact, image_url, email_id)
                 VALUES (${s.name}, ${s.address}, ${s.city}, ${s.state}, ${s.contact}, ${s.image_url}, ${s.email_id})
-                ON CONFLICT DO UPDATE;
+                ON CONFLICT (email_id) DO UPDATE SET
+                    name = EXCLUDED.name,
+                    address = EXCLUDED.address,
+                    city = EXCLUDED.city,
+                    state = EXCLUDED.state,
+                    contact = EXCLUDED.contact,
+                    image_url = EXCLUDED.image_url;
             `
         })
     )
