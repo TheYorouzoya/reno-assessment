@@ -3,7 +3,7 @@ export type School = {
     address: string
     city: string
     state: string
-    contact: number
+    contact: string
     image_url: string
     email_id: string
 }

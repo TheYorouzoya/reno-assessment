@@ -24,7 +24,7 @@ export default async function Page({
 
     const fetchedSchools = await fetchSchools(page)
 
-    console.log(fetchSchools)
+    console.log(page, fetchSchools)
 
     return (
         <main>
