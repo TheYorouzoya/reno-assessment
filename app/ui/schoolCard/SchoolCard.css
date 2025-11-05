@@ -5,6 +5,8 @@
 
 .card-image {
     height: 300px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .card-body {

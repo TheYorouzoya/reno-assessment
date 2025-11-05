@@ -1,6 +1,6 @@
 .card-wrapper {
     display: grid;
-    max-width: 800px;
+    max-width: 1200px;
     grid-template-columns: auto auto auto auto;
     gap: 15px;
 }
