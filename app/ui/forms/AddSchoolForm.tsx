@@ -18,59 +18,41 @@ export function AddSchoolForm() {
     const onSubmit: SubmitHandler<SchoolForm> = async (data) => {
         const newState = await createSchool(data)
         setFormState(newState)
-        if (newState.errors) {
-            alert("Errors!")
-            console.log(newState)
-        }
     }
+
+    const renderField = (
+        id: keyof SchoolForm,
+        fieldName: string,
+        label: string,
+        type: string,
+        opts: Record<string, any> = {},
+        accept?: string
+    ) => (
+        <div key={id}>
+            <label htmlFor={id}>{label}</label>
+            <input id={id} type={type} accept={accept} {...register(id, opts)} />
+            <div className="error" aria-live="polite" aria-atomic="true">
+                {errors[id]?.type === "required" && <span>{fieldName} is required.</span>}
+                {errors[id]?.type === "minLength" && <span>{fieldName} must be longer than {opts.minLength} characters.</span>}
+                {errors[id]?.type === "pattern" && <span>{fieldName} is invalid.</span>}
+                {state.errors?.[id] &&
+                    state.errors[id]!.map((err, i) => <span key={i}>{err}</span>)}
+            </div>
+        </div>
+    )
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            
-            <label htmlFor="name">Name:</label>
-            <input id="name" {...register("name", { required: true, minLength: 5 })} />
-            {errors.name && errors.name.type == "required" && <span className="error">This field is required.</span>}
-            {errors.name && errors.name.type == "minLength" && <span className="error">Must be more than 5 characters.</span>}
-            <div>
-                {state.errors?.name && 
-                    state.errors.name.map((error: string, index) => (
-                        <span key={index}>{error}</span>
-                    ))}
-            </div>
-            
-            <label htmlFor="address">Address:</label>
-            <input id="address" {...register("address", { required: true })} />
-            {errors.address && <span className="error">This field is required.</span>}
-            
-            <label>City:</label>
-            <input {...register("city", { required: true })} />
-            {errors.city && <span className="error">This field is required.</span>}
-            
-            <label>State:</label>
-            <input {...register("state", { required: true })} />
-            {errors.state && <span className="error">This field is required.</span>}
-            
-            <label>Contact:</label>
-            <input type="number" {...register("contact", { required: true })} />
-            {errors.contact && <span className="error">This field is required.</span>}
-            <div>
-                {state.errors?.contact && 
-                    state.errors.contact.map((error: string, index) => (
-                        <span key={index}>{error}</span>
-                    ))}
-            </div>
-
-            <label>Image:</label>
-            <input type="file" accept="image/*" {...register("image", { required: true })} />
-            {errors.image && <span className="error">This field is required.</span>}
-            
-            <label>Email:</label>
-            <input {...register("email_id", { 
+            {renderField("name", "Name", "Name*:", "text", { required: true, minLength: 5 })}
+            {renderField("address", "Address", "Address*:", "text", { required: true, minLength: 5 })}
+            {renderField("city", "City", "City*:", "text", { required: true, minLength: 5 })}
+            {renderField("state", "State", "State*:", "text", { required: true, minLenght: 5 })}
+            {renderField("contact", "Contact number", "Contact*:", "number", { required: true, minLength: 8 })}
+            {renderField("image", "Image", "Image*:", "file", { required: true }, "image/*")}
+            {renderField("email_id", "Email", "Email*:", "email", {
                 required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$/i
-                })} />
-            {errors.email_id && errors.email_id.type == "required" && <span className="error">This field is required.</span>}
-            {errors.email_id && errors.email_id.type == "pattern" && <span className="error">Email is not valid.</span>}
+                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            })}
         
             <input type="submit" />
         </form>

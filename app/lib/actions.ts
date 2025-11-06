@@ -38,7 +38,7 @@ export type SchoolFormState = {
         city?: string[]
         state?: string[]
         contact?: string[]
-        image_url?: string[]
+        image?: string[]
         email_id?: string[]
     }
     message?: string | null
@@ -68,9 +68,15 @@ export async function createSchool(schoolForm : SchoolForm) {
     const buffer = Buffer.from(await image.arrayBuffer())
     const imageName = (name + state + image.name).replaceAll(" ", "_")
     const imagePath = `./public/schoolImages/${imageName}`
-    const image_url = `/schoolImages/${imageName}`
+    let image_url = `/schoolImages/${imageName}`
     
-    await fs.writeFile(imagePath, buffer)
+    try {
+        await fs.writeFile(imagePath, buffer)
+    } catch (error) {
+        // This is a workaround for Vercel Deployment to fallback to placeholder image
+        // In production code, there would be more proper error handling here
+        image_url = `/schoolImages/school.jpeg`
+    }
 
     try {
         const sqlRes = await sql`
