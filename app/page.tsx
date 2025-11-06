@@ -14,7 +14,7 @@ export default function Home() {
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Hi! I'm Ratnesh. <br />This is my submission for the Web Developer Assessment at Reno Platforms.
+            Hi! I'm <span style={{color: "indianred"}}>Ratnesh.</span> <br />This is my submission for the <span style={{color: "indianred"}}>Web Developer</span> Assessment at Reno Platforms.
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Since the project is hosted on Vercel (which uses serverless architecture), I cannot save the uploaded image on a local folder.
