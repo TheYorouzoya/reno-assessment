@@ -5,14 +5,14 @@ const sql = postgres(process.env.RENO_POSTGRES_URL!, { ssl: 'require' })
 
 const ITEMS_PER_PAGE = 12;
 export async function fetchSchools(currentPage: number) {
-    const offset = (currentPage - 1) * (ITEMS_PER_PAGE + 1)
+    const offset = (currentPage - 1) * (ITEMS_PER_PAGE)
 
     try {
         const schools = await sql<School[]>`
             SELECT 
                 name, address, city, state, contact, image_url, email_id
             FROM schools
-            ORDER BY name ASC
+            ORDER BY LOWER(name) ASC
             LIMIT ${ITEMS_PER_PAGE + 1} OFFSET ${offset};
         `
 

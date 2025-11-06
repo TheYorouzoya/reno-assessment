@@ -8,7 +8,7 @@ type SchoolCardProps = {
 export default function SchoolCard({ school } : SchoolCardProps) {
     return (
         <div className="school-card">
-            <div className="card-image">
+            <div className="school-image">
                 <img src={school.image_url} alt={`Image of ${school.name} school`} />
             </div>
             <div className="card-body">

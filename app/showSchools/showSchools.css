@@ -13,3 +13,28 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 10px;
 }
+
+.card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.card-footer > .card-button {
+    display: block;
+    background: indianred;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+.card-footer > .card-button:hover {
+    background: rgb(223, 57, 57);
+    cursor: pointer;
+}

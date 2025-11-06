@@ -1,7 +1,9 @@
 import postgres from 'postgres'
 import { schools } from '../lib/initial-school-data'
 
-const sql = postgres(process.env.RENO_POSTGRES_URL!, { ssl: 'require' })
+const sql = postgres(process.env.RENO_POSTGRES_URL!, { 
+    ssl: process.env.NODE_ENV === 'production' ? 'require' : false,
+})
 
 async function seedSchools() {
     await sql`

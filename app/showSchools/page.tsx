@@ -7,9 +7,10 @@ import Link from "next/link"
 export default async function Page({
     searchParams,
 }: {
-    searchParams: { [key: string]: string | string[] | undefined}
+    searchParams: Promise<{ [key: string]: string | string[] | undefined}>
 }) {
-    const pageParam = searchParams.page
+    const params = await searchParams
+    const pageParam = params.page
     let page = 1
 
     if (typeof pageParam === "string") {
