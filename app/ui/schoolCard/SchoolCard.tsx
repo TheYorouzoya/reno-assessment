@@ -7,7 +7,7 @@ type SchoolCardProps = {
 
 export default function SchoolCard({ school } : SchoolCardProps) {
     return (
-        <div className="school-card">
+        <article className="school-card">
             <div className="school-image">
                 <img src={school.image_url} alt={`Image of ${school.name} school`} />
             </div>
@@ -16,6 +16,6 @@ export default function SchoolCard({ school } : SchoolCardProps) {
                 <h3 className="school-name">{school.name}</h3>
                 <span className="school-address">{school.address}</span>
             </div>
-        </div>
+        </article>
     )
 }

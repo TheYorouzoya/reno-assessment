@@ -1,8 +1,8 @@
 form {
     display: flex;
     flex-direction: column;
+    width: 100%;
     max-width: 500px;
-    margin: 0 auto;
     align-self: center;
     border: 1px solid indianred;
     border-radius: 10px;
@@ -51,5 +51,11 @@ form {
         color: indianred;
         font-size: 14px;
         margin-bottom: 7px;
+    }
+
+    .success {
+        color: green;
+        text-align: center;
+        font-size: 18px;
     }
 }

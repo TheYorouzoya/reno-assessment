@@ -54,6 +54,7 @@ export function AddSchoolForm() {
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
             })}
         
+            <div className="success" aria-live="polite" aria-atomic="true">{state.success && <span>Successfully added school to database!</span>}</div>
             <input type="submit" />
         </form>
     )

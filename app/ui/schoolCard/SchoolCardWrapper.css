@@ -5,6 +5,12 @@
     gap: 15px;
 }
 
+@media screen and (max-width: 1000) {
+    .card-wrapper {
+        grid-template-columns: auto auto;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .card-wrapper {
         grid-template-columns: auto;
