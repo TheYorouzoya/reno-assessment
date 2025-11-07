@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is my submission for the Web Developer position at Reno Platforms.
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm i
+#or
+pnpm i
+```
+
+Second, create a Postgres database and supply the connection string as the `RENO_POSTGRES_URL` env variable (see `.env.example`).
+
+Then, run the development server:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Seed the database with some intial data. Open [http://localhost:3000/seed](http://localhost:3000/seed), which will run the seed script (initializing the school table) and populate the database with some dummy entries.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If you ever have to reset/truncate the school table, visit [http://localhost:3000/reset](http://localhost:3000/reset). Then, revisit the seed route to seed the data again.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Vercel Deployment
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This app is deployed on Vercel. The caveat here is that the assignment asked for storing the school image on a local folder. This isn't possible on a serverless deployment like Vercel, Netlify, etc., since those environments are read-only. This would require adding in an external file hosting service. If you're running this locally, the images will be saved in the `/public/schoolImages` folder upon a successful save.
